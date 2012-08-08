@@ -95,23 +95,11 @@ def libmap(source_dirs, target_dir):
                  pjoin(target_dir, basename(source_dir))))
         for source_dir in source_dirs)
 
-
+# Neutralize colorization
+# did not display good colors in my terminal
 @filter
 def colorize(s, color):
-    if not sys.stdout.isatty():
-        return s
+#   if not sys.stdout.isatty():
+    return s
 
-    ccodes = {
-        'cyan':     '96',
-        'purple':   '95',
-        'blue':     '94',
-        'green':    '92',
-        'yellow':   '93',
-        'red':      '91',
-    }
-
-    return ''.join([
-        '\033[', ccodes[color], 'm', 
-        s,
-        '\033[0m'
-    ])
+    
